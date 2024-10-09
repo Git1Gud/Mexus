@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="footerLogo">
         Mexus
         </div>
-        <div className="para">
+        <div className="para font-poppins">
         A comprehensive healthcare app offering appointment booking, video consultations, AI assistance, and more for convenient and accessible medical care. 
             </div>
             <div className="footerSocial">

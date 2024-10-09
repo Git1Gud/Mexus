@@ -41,9 +41,6 @@ const HomeNavbar = () => {
           <NavLink to="/" className="links">
             Home
           </NavLink>
-          <NavLink to="/Searchdoctors" className="links normal-text">
-            Search Doctors
-          </NavLink>
           <NavLink to="/aboutUs" className="links normal-text">
             About Us
           </NavLink>
@@ -76,11 +73,11 @@ const HomeNavbar = () => {
             Sign Up
           </NavLink>
           </div>
-          <div className="btns">
+          {/* <div className="btns">
           <NavLink to="/login" className="btn">
             Login
           </NavLink>
-          </div>
+          </div> */}
         </>}
 
         <div
