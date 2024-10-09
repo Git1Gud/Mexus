@@ -13,24 +13,24 @@ const HomeNavbar = () => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar z-50 absolute !bg-transparent">
       <div className="navCon">
         <div className="Navlogo anta-regular">MEXUS</div>
 
-        <div className={`navlinks ${isOpen ? "open" : ""}`}>
+        <div className={`navlinks  ${isOpen ? "open" : ""}`}>
           <NavLink to="/" className="links">
             Home
           </NavLink>
-          <NavLink to="/Searchcampaigns" className="links">
+          <NavLink to="/Searchdoctors" className="links normal-text">
             Search Doctors
           </NavLink>
-          <NavLink to="/aboutUs" className="links">
+          <NavLink to="/aboutUs" className="links normal-text">
             About Us
           </NavLink>
-          <NavLink to="/contactUs" className="links">
+          <NavLink to="/contactUs" className="links normal-text">
             Contact Us
           </NavLink>
-          <button className="btn1 drawerbtn">Sign Up</button>
+          <button className="btn1 drawerbtn normal-text">Sign Up</button>
         </div>
 
         {/* { token && user ? (
@@ -41,9 +41,9 @@ const HomeNavbar = () => {
      ) :(<div className="btns">
           <NavLink to="/register"  className="btn1">Sign Up</NavLink>
         </div>)} */}
-        <NavLink to="/home" className="userImg">
+        {/* <NavLink to="/home" className="userImg">
           <img src="" alt="" />
-        </NavLink>
+        </NavLink> */}
 
         <div className="btns">
           <NavLink to="/register" className="btn">

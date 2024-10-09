@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { PageNotFound,Login,Register, Appointment } from "./pages/index.js";
 import { ChakraProvider } from "@chakra-ui/react";
 import "./index.css";
+import './App.css'
 import { Dashboard } from "./components/index.js";
 import Home from "./pages/Home/Home.jsx";
 import Zegovideo from "./components/Zegovideo.jsx";

@@ -1,4 +1,5 @@
 // import React, { useEffect } from "react";
+import HomeNavbar from './HomeNavbar/HomeNavbar';
 import {Navbar,Example} from './index'
 import { Outlet, useNavigate } from "react-router-dom";
 
@@ -25,7 +26,7 @@ const Dashboard = () => {
       </div>
       <div className="flex-1 w-full overflow-y-auto">
         <div className="flex flex-col">
-          <Navbar />
+          <HomeNavbar />
           <Outlet />
         </div>
       </div>
