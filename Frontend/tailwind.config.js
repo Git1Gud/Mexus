@@ -10,7 +10,9 @@ export default {
         'primary':'#F7F7F9',
         'secondary': '#FFFFFF',
         'Greyish':'#EFEFF1',
-        'Blackish': '#1c1c1c'
+        'Blackish': '#1c1c1c',
+        'gray':'#ececec',
+        'blue':'#579ffb'
       },
       fontFamily: {
         'anta': ['Anta', 'sans-serif'],
@@ -25,6 +27,8 @@ export default {
         '--color-secondary': theme('colors.secondary'),
         '--color-greyish': theme('colors.Greyish'),
         '--color-blackish': theme('colors.Blackish'),
+        '--color-gray': theme('colors.gray'),
+        '--color-blue': theme('colors.blue'),
       },
     });
   }],

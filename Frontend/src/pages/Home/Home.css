@@ -79,37 +79,6 @@
 
 
 
-.serviceWrapper{
-    width: 80%;
-}
-  
-
-.services .serviceBox {
-    width: 200px;
-    height: 80px;
-    padding: 10px;
-    background: #fff;
-    border-radius: 0;
-    -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .05);
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .05);
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    cursor: pointer;
-    height: 88px;
-    margin-bottom: 20px;
-    margin-right: 21px;
-    padding: 22px 50px 18px 26px;
-    width: 295px;
-}
-.services .serviceBox .servicon {
-    font-size: 30px;
-}
-.services .serviceBox .serviText {
-    font-size: 18px;
-    font-style: normal;
-    text-align: center;
-    text-transform: none;}
-
   .homeImages .img1{
     width: 250px;
     height: 400px;
@@ -139,6 +108,37 @@
     
   }
    */
+
+   .serviceWrapper{
+    width: 80%;
+}
+  
+
+.services .serviceBox {
+    width: 200px;
+    height: 80px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 0;
+    -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .05);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .05);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 88px;
+    margin-bottom: 20px;
+    margin-right: 21px;
+    padding: 22px 50px 18px 26px;
+    width: 295px;
+}
+.services .serviceBox .servicon {
+    font-size: 30px;
+}
+.services .serviceBox .serviText {
+    font-size: 18px;
+    font-style: normal;
+    text-align: center;
+    text-transform: none;}
 
 
 
