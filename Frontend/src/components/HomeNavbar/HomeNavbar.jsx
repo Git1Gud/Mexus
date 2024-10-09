@@ -1,0 +1,67 @@
+// eslint-disable-next-line no-unused-vars
+import React, { useState } from "react";
+import "./HomeNavbar.css";
+import { NavLink } from "react-router-dom";
+// import admin from '../../assets/avatar-icon.png'
+
+const HomeNavbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  // const {user,role,token} = useContext(authContext);
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+    document.body.style.overflow = isOpen ? "auto" : "hidden";
+  };
+
+  return (
+    <nav className="navbar">
+      <div className="navCon">
+        <div className="Navlogo anta-regular">MEXUS</div>
+
+        <div className={`navlinks ${isOpen ? "open" : ""}`}>
+          <NavLink to="/" className="links">
+            Home
+          </NavLink>
+          <NavLink to="/Searchcampaigns" className="links">
+            Search Doctors
+          </NavLink>
+          <NavLink to="/aboutUs" className="links">
+            About Us
+          </NavLink>
+          <NavLink to="/contactUs" className="links">
+            Contact Us
+          </NavLink>
+          <button className="btn1 drawerbtn">Sign Up</button>
+        </div>
+
+        {/* { token && user ? (
+          <NavLink to={`${role === 'investor' ? '/investors/profile/me' : role === 'fundraiser' ? '/fundraisers/profile/me' : '/interns/profile/me'}`} className="userImg" >
+          <img src={user?.photo}   alt="" />     
+        </NavLink> 
+        
+     ) :(<div className="btns">
+          <NavLink to="/register"  className="btn1">Sign Up</NavLink>
+        </div>)} */}
+        <NavLink to="/home" className="userImg">
+          <img src="" alt="" />
+        </NavLink>
+
+        <div className="btns">
+          <NavLink to="/register" className="btn">
+            Sign Up
+          </NavLink>
+        </div>
+
+        <div
+          className={`hamburger ${isOpen ? "open" : ""}`}
+          onClick={toggleNavbar}
+        >
+          <div className="line1"></div>
+          <div className="line2"></div>
+          <div className="line3"></div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default HomeNavbar;
