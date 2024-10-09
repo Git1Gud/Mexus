@@ -22,11 +22,12 @@ router.route("/update-medical-history").patch(updateMedicalHistory)
 router.route("/update-medical-reports").patch(
     upload.fields([
         {
-            name:"reports",
-            maxCount:10,
+            name:"medicalReport",
+            maxCount:1,
         },
      ])
     ,addMedicalReports)
+    
 router.route("/details").get(getPatientDetails)
 
 export  {router}
