@@ -9,6 +9,7 @@ import { Dashboard } from "./components/index.js";
 import Home from "./pages/Home/Home.jsx";
 import Zegovideo from "./components/Zegovideo.jsx";
 import VideozegoRoom from "./components/VideozegoRoom.jsx";
+import Chat from "./components/Chat.jsx";
 
 import {Main} from './pages/index.js'
 import ChatApp from "./pages/Chat/Chat.jsx";
@@ -40,11 +41,12 @@ const router = createBrowserRouter([
       },{
         path: 'appointment',
         element: <Appointment/>
-      }
-      ,{
+      },
+      {
         path: 'chat',
-        element: <ChatApp/>
-      }
+        element: <Chat />,
+      },
+      
     ],
     element: <Dashboard/>
   },
