@@ -14,6 +14,7 @@ export default {
       },
       fontFamily: {
         'anta': ['Anta', 'sans-serif'],
+        'poppins': ['poppins', 'serif'],       
       }
     },
   },
