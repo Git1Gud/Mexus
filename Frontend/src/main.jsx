@@ -12,6 +12,7 @@ import VideozegoRoom from "./components/VideozegoRoom.jsx";
 import Chat from "./components/Chat.jsx";
 
 import {Main} from './pages/index.js'
+import ChatApp from "./pages/Chat/Chat.jsx";
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
         path: 'videocall',
         element: <Zegovideo/>,
       },
+      
       {
         path:"room/:id",
         element:<VideozegoRoom/>
@@ -58,6 +60,7 @@ const router = createBrowserRouter([
     element: <Login />,
     errorElement: <PageNotFound />,
   },
+
 ]);
 
 createRoot(document.getElementById("root")).render(

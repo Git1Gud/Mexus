@@ -10,35 +10,35 @@ import Footer from "../../components/Footer/Footer";
 const servicesData = [
   {
     icon: <IoCall />,
-    serviceName: "Doctor Call",
+    serviceName: "Appointment booking",
   },
   {
-    icon:   <i className="fa-solid fa-user"></i>,
+    icon:   <i className="fa-solid fa-video"></i>,
     serviceName: "Online Consultation",
   },
   {
-    icon:   <i className="fa-solid fa-user"></i>,
-    serviceName: "Online Consultation",
+    icon:   <i className="fa-solid fa-comments"></i>,
+    serviceName: "Chat",
   },
   {
     icon:   <i className="fa-solid fa-user"></i>,
-    serviceName: "Online Consultation",
+    serviceName: "Medical awareness",
   },
   {
-    icon:   <i className="fa-solid fa-user"></i>,
-    serviceName: "Online Consultation",
+    icon:   <i className="fa-solid fa-robot"></i>,
+    serviceName: "Chatbot",
   },
   {
-    icon:   <i className="fa-solid fa-user"></i>,
-    serviceName: "Online Consultation",
+    icon:   <i className="fa-solid fa-hospital"></i>,
+    serviceName: "Emergency Lookup",
   },
   {
-    icon:   <i className="fa-solid fa-user"></i>,
-    serviceName: "Online Consultation",
+    icon:   <i className="fa-solid fa-pills"></i>,
+    serviceName: "Medicine Reminder",
   },
   {
-    icon:   <i className="fa-solid fa-user"></i>,
-    serviceName: "Online Consultation",
+    icon:   <i className="fa-solid fa-brain"></i>,
+    serviceName: "AI Asisstant",
   },
   // Add more services here
 ];
@@ -46,9 +46,9 @@ const Home = () => {
   return (
     <div className="homePageflex flex-col w-full  overflow-hidden relative">
       <HomeNavbar />
-      <div className="flex flex-col w-full mt-32 mb-20">
+      <div className="flex flex-col w-full mt-20 mb-20">
         <section className="relative flex flex-col  justify-center  items-center bg-white">
-          <div className="absolute w-full min-w-[1024px] left-1/2 -translate-x-1/2 h-full">
+          <div className="relative w-full min-w-[1024px] h-max ">
             <div className="feature-shade">
               <div className="feature-shade-1"></div>
               <div className="feature-shade-2"></div>

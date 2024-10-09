@@ -43,6 +43,31 @@ const getDoctorDetails = asyncHandler(async (req, res) => {
   return res.status(200).json(new ApiResponse(200, doctor, "Doctor details retrieved successfully"));
 });
 
+// Get all doctor details
+const getAllDoctors = asyncHandler(async (req, res) => {
+  try {
+    const { query } = null
+    let doctors;
+
+    if (query) {
+      doctors = await Doctor.find({
+        $or: [
+          { title: { $regex: query, $options: "i" } }, // Case-insensitive search
+          { type: { $regex: query, $options: "i" } }, // Uncomment for type filter
+          { category: { $regex: query, $options: "i" } }, // Uncomment for category filter
+        ],
+      });
+    } else {
+      doctors = await Doctor.find({ completed: "false" });
+    }
+
+    res.status(200).json(new ApiResponse(200, doctors, "Doctors retrieved successfully"));
+  } catch (error) {
+    console.error(error); // Log the error for debugging
+    res.status(404).json({ success: false, message: error.message });
+  }
+});
+
 // Update doctor details
 const updateDoctorDetails = asyncHandler(async (req, res) => {
   const userId  = req.user._id; 
@@ -93,4 +118,5 @@ export {
   getDoctorDetails,
   updateDoctorDetails,
   getPatientsForDoctor,
+  getAllDoctors,
 };
