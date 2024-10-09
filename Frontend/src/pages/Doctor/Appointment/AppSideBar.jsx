@@ -38,7 +38,7 @@ const AppSidebar = () => {
     <div className="rounded-lg w-1/4 h-screen overflow-y-auto no-scrollbar ">
       {/* Header and Search */}
       <h2 className="text-2xl font-bold text-gray-800 mb-4">Patient Queue</h2>
-      <div className="relative mb-4">
+      <div className="relative mb-4 flex justify-center items-center p-4 gap-2">
         <input
           type="text"
           placeholder="Search..."
@@ -46,7 +46,7 @@ const AppSidebar = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
-        <span className="absolute top-2.5 right-3 text-gray-400">
+        <span className="text-gray-400">
           <FaSearch />
         </span>
       </div>

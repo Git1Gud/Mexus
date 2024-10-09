@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "./HomeNavbar.css";
 import { NavLink } from "react-router-dom";
+import { useToast } from "@chakra-ui/react";
 // import admin from '../../assets/avatar-icon.png'
 
 const HomeNavbar = () => {
@@ -12,8 +13,27 @@ const HomeNavbar = () => {
     document.body.style.overflow = isOpen ? "auto" : "hidden";
   };
 
+  const user=JSON.parse(localStorage.getItem('user'))
+  const token = localStorage.getItem('token');
+
+  console.log(token)
+  
+
+  const handleLogout = async () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('student-courses');
+    toast({
+      title: "Logged Out ",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
+    navigate('/login');
+  };
+
   return (
-    <nav className="navbar z-50 absolute !bg-transparent">
+    <nav className="navbar z-50 border-b-2 !bg-transparent">
       <div className="navCon">
         <div className="Navlogo anta-regular">MEXUS</div>
 
@@ -45,11 +65,23 @@ const HomeNavbar = () => {
           <img src="" alt="" />
         </NavLink> */}
 
-        <div className="btns">
+        {token?<div className="btns" onClick={handleLogout}>
+          <NavLink to="/" className="btn">
+            LogOut
+          </NavLink>
+        </div>:
+        <>
+          <div className="btns">
           <NavLink to="/register" className="btn">
             Sign Up
           </NavLink>
-        </div>
+          </div>
+          <div className="btns">
+          <NavLink to="/login" className="btn">
+            Login
+          </NavLink>
+          </div>
+        </>}
 
         <div
           className={`hamburger ${isOpen ? "open" : ""}`}
