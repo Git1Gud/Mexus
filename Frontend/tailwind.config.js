@@ -13,7 +13,7 @@ export default {
         'Blackish': '#1c1c1c'
       },
       fontFamily: {
-        'anta': ['Anta', 'sans-serif'], 
+        'anta': ['Anta', 'sans-serif'],
       }
     },
   },
