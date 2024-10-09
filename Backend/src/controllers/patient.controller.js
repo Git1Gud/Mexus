@@ -4,7 +4,7 @@ import { ApiError } from "../utils/ApiError.js";
 import Patient from "../models/patient.model.js";
 import User from "../models/user.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-
+import { uploadOnCloudinary as upload } from "../utils/cloudinary.js";
 // Create a new patient
 const createPatient = asyncHandler(async (req, res) => {
   const { medicalHistory } = req.body;
@@ -22,9 +22,12 @@ const createPatient = asyncHandler(async (req, res) => {
     throw new ApiError(409, "Patient record already exists for this user.");
   }
 // medical report sto be explicitly added by patient afterwards***
+console.log(1234);
+
   const patient = await Patient.create({
     userId,
     medicalHistory,
+    medicalReports:[],
   });
 
   return res.status(201).json(new ApiResponse(200, patient, "Patient record  successfully. but not medical reports"));
@@ -50,16 +53,34 @@ const updateMedicalHistory = asyncHandler(async (req, res) => {
 
 // Add medical reports  **
 const addMedicalReports = asyncHandler(async (req, res) => {
-  const { reports } = req.files; // Array of report URLs
+  const { medicalReport } = req.files; // Array of report URLs
   const userId  = req.user._id; // Assuming userId is passed in the request object
-console.log(reports);
-  if (!Array.isArray(reports) || reports.length === 0) {
-    throw new ApiError(400, "Reports should be a non-empty array.");
-  }
+console.log(req.files);
 
+  // if (!Array.isArray(reports) || reports.length === 0) {
+    // throw new ApiError(400, "Reports should be a non-empty array.");
+  // }
+   let medicalreports=[]
+   const medicalReportLocalPath = req.files?.medicalReport[0]?.path;
+
+  
+  if (!medicalReportLocalPath) {
+    throw new ApiError(400, "image file is required")
+}
+
+    const report=await upload(medicalReportLocalPath)
+
+if(!report){
+  throw new ApiError(500,"internal server error when uploading avatar")
+}
+
+
+console.log(report.url);
+
+medicalreports[0]=report.url
   const patient = await Patient.findOneAndUpdate(
     { userId },
-    { $push: { medicalReports: { $each: reports } } }, // Push new reports to the existing array
+    { $push: { medicalReports: { $each: medicalreports } } }, // Push new reports to the existing array
     { new: true }
   );
 

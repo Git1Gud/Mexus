@@ -10,35 +10,35 @@ import Footer from "../../components/Footer/Footer";
 const servicesData = [
   {
     icon: <IoCall />,
-    serviceName: "Doctor Call",
+    serviceName: "Appointment booking",
   },
   {
-    icon:   <i className="fa-solid fa-user"></i>,
+    icon:   <i className="fa-solid fa-video"></i>,
     serviceName: "Online Consultation",
   },
   {
-    icon:   <i className="fa-solid fa-user"></i>,
-    serviceName: "Online Consultation",
+    icon:   <i className="fa-solid fa-comments"></i>,
+    serviceName: "Chat",
   },
   {
     icon:   <i className="fa-solid fa-user"></i>,
-    serviceName: "Online Consultation",
+    serviceName: "Medical awareness",
   },
   {
-    icon:   <i className="fa-solid fa-user"></i>,
-    serviceName: "Online Consultation",
+    icon:   <i className="fa-solid fa-robot"></i>,
+    serviceName: "Chatbot",
   },
   {
-    icon:   <i className="fa-solid fa-user"></i>,
-    serviceName: "Online Consultation",
+    icon:   <i className="fa-solid fa-hospital"></i>,
+    serviceName: "Emergency Lookup",
   },
   {
-    icon:   <i className="fa-solid fa-user"></i>,
-    serviceName: "Online Consultation",
+    icon:   <i className="fa-solid fa-pills"></i>,
+    serviceName: "Medicine Reminder",
   },
   {
-    icon:   <i className="fa-solid fa-user"></i>,
-    serviceName: "Online Consultation",
+    icon:   <i className="fa-solid fa-brain"></i>,
+    serviceName: "AI Asisstant",
   },
   // Add more services here
 ];
@@ -46,9 +46,9 @@ const Home = () => {
   return (
     <div className="homePageflex flex-col w-full  overflow-hidden relative">
       <HomeNavbar />
-      <div className="flex flex-col w-full mt-32 mb-20">
+      <div className="flex flex-col w-full mt-20 mb-20">
         <section className="relative flex flex-col  justify-center  items-center bg-white">
-          <div className="absolute w-full min-w-[1024px] left-1/2 -translate-x-1/2 h-full">
+          <div className="relative w-full min-w-[1024px] h-max ">
             <div className="feature-shade">
               <div className="feature-shade-1"></div>
               <div className="feature-shade-2"></div>
@@ -68,10 +68,10 @@ const Home = () => {
           <div className="homeUP z-10 flex flex-col items-center justify-center  ">
             <div className="text-Blakish text-5xl text-center">
               <div className="heading font-bold ">
-                Build Powerful Interaction Apps with
+              Convenient, Accessible Healthcare at Your Fingertips
               </div>
               <span className="heading !font-anta">
-                Voice , Video & Chat API
+                Your Health, Your Choice
               </span>
               <div className="subHeading !text-gray-400 mt-5 mb-5">
                 Find your ideal doctor and book appointments effortlessly
@@ -88,7 +88,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section className=" relative homeServices mt-30 pt-10 h-full flex flex-col  justify-center  items-center text-center bg-transulcent">
+        <section className=" relative homeServices mt-30 pt-20 h-full flex flex-col  justify-center  items-center text-center bg-transulcent">
           <div className="absolute serviceShade"></div>
           <div className=" z-10 serviceWrapper h-full flex flex-col  justify-center  items-center text-center">
             <div className="heading spanColor !font-anta">Our Services</div>
@@ -97,7 +97,7 @@ const Home = () => {
               Your App Success
             </div>
           </div>
-          <div className=" z-10  services flex flex-row  flex-wrap justify-center  items-center text-center ">
+          <div className=" z-10  services flex flex-row mt-10 flex-wrap justify-center  items-center text-center ">
             {servicesData.map((service, index) => (
               <div
                 key={index}

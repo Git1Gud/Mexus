@@ -29,7 +29,6 @@
 
 .spanColor{
   font-size: 48px;
-  font-weight: 700;
   color: var(--Blackish);
   margin-bottom: 1rem;
 
@@ -58,4 +57,19 @@
   width: 80%;
   align-self: center;
 }
+
+
+.zego-img{
+  width: 400px;
+  height: auto;
+  border-radius: 100%;
+  object-fit: cover;
+  margin: 30px auto;
+}
+
+
+
+
+
+
 

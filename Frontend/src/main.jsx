@@ -10,8 +10,10 @@ import Home from "./pages/Home/Home.jsx";
 import Zegovideo from "./components/Zegovideo.jsx";
 import VideozegoRoom from "./components/VideozegoRoom.jsx";
 import Report from "./pages/Patient/Report.jsx";
+import Chat from "./components/Chat.jsx";
 
 import {Main} from './pages/index.js'
+import ChatApp from "./pages/Chat/Chat.jsx";
 
 
 const router = createBrowserRouter([
@@ -30,6 +32,7 @@ const router = createBrowserRouter([
         path: 'videocall',
         element: <Zegovideo/>,
       },
+      
       {
         path:"room/:id",
         element:<VideozegoRoom/>
@@ -40,9 +43,14 @@ const router = createBrowserRouter([
         path: 'appointment',
         element: <Appointment/>
       },{
-        path: 'report',
+        path:'report',
         element: <Report/>
-      }
+      },
+      {
+        path: 'chat',
+        element: <Chat />,
+      },
+      
     ],
     element: <Dashboard/>
   },
@@ -56,6 +64,7 @@ const router = createBrowserRouter([
     element: <Login />,
     errorElement: <PageNotFound />,
   },
+
 ]);
 
 createRoot(document.getElementById("root")).render(
