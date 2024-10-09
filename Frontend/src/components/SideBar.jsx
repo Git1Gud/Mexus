@@ -18,7 +18,7 @@ export const Example = () => {
 };
 
 const Sidebar = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
   const user = JSON.parse(localStorage.getItem("user"));
   return (
