@@ -6,6 +6,9 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "./index.css";
 import { Dashboard } from "./components/index.js";
 import Home from "./pages/Home/Home.jsx";
+import Zegovideo from "./components/Zegovideo.jsx";
+import VideozegoRoom from "./components/VideozegoRoom.jsx";
+
 
 
 const router = createBrowserRouter([
@@ -16,7 +19,18 @@ const router = createBrowserRouter([
   },{
     path: '/home',
     children:[
+      {
+        path:'consultation',
 
+      },
+      {
+        path: 'videocall',
+        element: <Zegovideo/>,
+      },
+      {
+        path:"room/:id",
+        element:<VideozegoRoom/>
+      }
     ],
     element: <Dashboard/>
   },
