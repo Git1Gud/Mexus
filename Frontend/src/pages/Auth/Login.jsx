@@ -24,13 +24,11 @@ const Login = () => {
     event.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post(loginRoute, userData, {
-        withCredentials: true,
-      });
-      if (response.data.success) {
+      const response = await axios.post('http://localhost:8000/api/v1/users/login', userData)
+      if (response.data?.success) {
         toast({
           title: 'Logged in',
-          description: `${response.data.message}`,
+          description: `${response.data}`,
           status: 'success',
           duration: 9000,
           isClosable: true,
