@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { SlideTabs } from './FilterButton';
+import { SlideTabs } from "./FilterButton";
+import { FaSearch } from "react-icons/fa";
 
 const AppSidebar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -46,7 +47,7 @@ const AppSidebar = () => {
           className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <span className="absolute top-2.5 right-3 text-gray-400">
-          🔍 {/* You can replace this with an actual search icon */}
+          <FaSearch />
         </span>
       </div>
 
