@@ -9,6 +9,7 @@ import { Dashboard } from "./components/index.js";
 import Home from "./pages/Home/Home.jsx";
 import Zegovideo from "./components/Zegovideo.jsx";
 import VideozegoRoom from "./components/VideozegoRoom.jsx";
+import Report from "./pages/Patient/Report.jsx";
 
 import {Main} from './pages/index.js'
 
@@ -38,6 +39,9 @@ const router = createBrowserRouter([
       },{
         path: 'appointment',
         element: <Appointment/>
+      },{
+        path: 'report',
+        element: <Report/>
       }
     ],
     element: <Dashboard/>

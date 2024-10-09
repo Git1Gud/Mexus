@@ -16,7 +16,6 @@ const createPatient = asyncHandler(async (req, res) => {
 
   if(user.role=="doctor")  throw new ApiError(409, "doctor he bhai tu");
 
-
   const existingPatient = await Patient.findOne({ userId });
 
   if (existingPatient) {
@@ -67,15 +66,21 @@ console.log(reports);
   if (!patient) {
     throw new ApiError(404, "Patient record not found.");
   }
-
+  console.log(patient);
+  
   return res.status(200).json(new ApiResponse(200, patient, "Medical reports added successfully."));
 });
 
 // Get patient details
 const getPatientDetails = asyncHandler(async (req, res) => {
-  const userId  = req.user._id; // Assuming userId is passed in the request object
+  console.log(req);
+  
+  const {userId}  =req.params
+  // Assuming userId is passed in the request object
 console.log(userId);
-  const patient = await Patient.findOne({ userId }).populate('userId', '-password -refreshToken');
+console.log(123);
+
+  const patient = await Patient.findOne(userId);
 
   console.log(patient);
   

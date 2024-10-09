@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import "./HomeNavbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 // import admin from '../../assets/avatar-icon.png'
 
@@ -15,8 +15,10 @@ const HomeNavbar = () => {
 
   const user=JSON.parse(localStorage.getItem('user'))
   const token = localStorage.getItem('token');
+  const toast=useToast()
+  const navigate=useNavigate()
 
-  console.log(token)
+  // console.log(token)
   
 
   const handleLogout = async () => {

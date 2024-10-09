@@ -5,7 +5,7 @@ import { addMedicalReports, createPatient, getPatientDetails, updateMedicalHisto
 const router = Router()
 
 
-router.use(verifyJWT)
+// router.use(verifyJWT)
 
 
 router.route("/register").post(
@@ -27,6 +27,8 @@ router.route("/update-medical-reports").patch(
         },
      ])
     ,addMedicalReports)
+
+    
 router.route("/details").get(getPatientDetails)
 
 export  {router}

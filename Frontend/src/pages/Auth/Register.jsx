@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import {
   FormControl,
   FormLabel,
@@ -35,8 +35,13 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
-    if (!userData.email || !userData.fullName || !userData.phone || !userData.password) {
+
+    if (
+      !userData.email ||
+      !userData.fullName ||
+      !userData.phone ||
+      !userData.password
+    ) {
       toast({
         title: "Error",
         description: "All fields are required!",
@@ -48,7 +53,10 @@ const Register = () => {
     }
 
     // Validate doctor's additional fields
-    if (userData.role === "doctor" && (!userData.specialization || !userData.experience)) {
+    if (
+      userData.role === "doctor" &&
+      (!userData.specialization || !userData.experience)
+    ) {
       toast({
         title: "Error",
         description: "Specialization and experience are required for doctors!",
@@ -62,24 +70,61 @@ const Register = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:8000/api/v1/users/register",
+      "http://localhost:8000/api/v1/users/register",
         userData
       );
-
-      if (response.data.success) {
-        toast({
-          title: "Account created.",
-          description: "We've created your account for you.",
-          status: "success",
-          duration: 9000,
-          isClosable: true,
-        });
-        navigate("/login");
+      if (userData.role === "patient") {
+        const res = await axios.post(
+          "http://localhost:8000/api/v1/users/patient/register",
+          response.data.data.user._id
+        );
+        if (response.data.success) {
+          toast({
+            title: "Account created.",
+            description: "We've created your account for you.",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+          });
+          navigate("/login");
+        }
+      } else if (userData.role === "doctor") {
+        const response = await axios.post(
+          "http://localhost:8000/api/v1/users/doctor/register",
+          userData
+        );
+        if (response.data.success) {
+          toast({
+            title: "Account created.",
+            description: "We've created your account for you.",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+          });
+          navigate("/login");
+        }
+      } else if (userData.role === "admin") {
+        const res = await axios.post(
+          "http://localhost:8000/api/v1/admin/register",
+          userData
+        );
+        if (res.data.success) {
+          toast({
+            title: "Account created.",
+            description: "We've created your account for you.",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+          });
+          navigate("/login");
+        }
       }
     } catch (error) {
+      console.log(error);
+
       toast({
         title: "Error",
-        description: `${error.response.data.message}`,
+        description: `${error}`,
         status: "error",
         duration: 9000,
         isClosable: true,

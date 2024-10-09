@@ -1,17 +1,20 @@
 from flask import Flask, request, jsonify
-from groq import Groq
+from groq import Groq # type: ignore
 import requests
-import PyPDF2
+import PyPDF2 # type: ignore
 from io import BytesIO
-from PyPDF2 import PdfReader
+from PyPDF2 import PdfReader # type: ignore
 import requests
 import re
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 client = Groq(api_key="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")
 
 # GRADE API 
+
 @app.route('/grade', methods=['POST'])
 def grade():
     data = request.get_json()
@@ -19,6 +22,7 @@ def grade():
     # Check if required fields are present
     if not data or 'pdf_url' not in data :
         return jsonify({"error": "Missing 'pdf_url' "}), 400
+
 
     pdf_url = data['pdf_url']
 

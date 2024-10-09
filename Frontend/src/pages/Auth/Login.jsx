@@ -22,7 +22,8 @@ const Login = () => {
         "http://localhost:8000/api/v1/users/login",
         userData
       );
-
+      // console.log(response);
+      
       if (response.data.success) {
         toast({
           title: "Logged in",
@@ -31,7 +32,7 @@ const Login = () => {
           duration: 9000,
           isClosable: true,
         });
-
+        
         localStorage.setItem(
           "token",
           JSON.stringify(response.data.data.accessToken)
@@ -41,14 +42,17 @@ const Login = () => {
         setLoading(false);
       }
     } catch (error) {
+      console.log(error);
       toast({
         title: "Error",
-        description: `${error.response.data.message}`,
+        description: `${error}`,
         status: "error",
         duration: 9000,
         isClosable: true,
       });
       setLoading(false);
+    }finally {
+      setLoading(false)
     }
   };
 
