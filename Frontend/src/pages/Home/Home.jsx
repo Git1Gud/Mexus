@@ -48,7 +48,7 @@ const Home = () => {
       <HomeNavbar />
       <div className="flex flex-col w-full mt-20 mb-20">
         <section className="relative flex flex-col  justify-center  items-center bg-white">
-          <div className="absolute w-full min-w-[1024px] left-1/2 -translate-x-1/2 h-full">
+          <div className="relative w-full min-w-[1024px] h-max ">
             <div className="feature-shade">
               <div className="feature-shade-1"></div>
               <div className="feature-shade-2"></div>
