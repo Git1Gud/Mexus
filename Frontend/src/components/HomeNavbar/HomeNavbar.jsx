@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "./HomeNavbar.css";
 import { NavLink } from "react-router-dom";
+import { useToast } from "@chakra-ui/react";
 // import admin from '../../assets/avatar-icon.png'
 
 const HomeNavbar = () => {
@@ -12,25 +13,44 @@ const HomeNavbar = () => {
     document.body.style.overflow = isOpen ? "auto" : "hidden";
   };
 
+  const user=JSON.parse(localStorage.getItem('user'))
+  const token = localStorage.getItem('token');
+
+  console.log(token)
+  
+
+  const handleLogout = async () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('student-courses');
+    toast({
+      title: "Logged Out ",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
+    navigate('/login');
+  };
+
   return (
-    <nav className="navbar">
+    <nav className="navbar z-50 border-b-2 !bg-transparent">
       <div className="navCon">
         <div className="Navlogo anta-regular">MEXUS</div>
 
-        <div className={`navlinks ${isOpen ? "open" : ""}`}>
+        <div className={`navlinks  ${isOpen ? "open" : ""}`}>
           <NavLink to="/" className="links">
             Home
           </NavLink>
-          <NavLink to="/Searchcampaigns" className="links">
+          <NavLink to="/Searchdoctors" className="links normal-text">
             Search Doctors
           </NavLink>
-          <NavLink to="/aboutUs" className="links">
+          <NavLink to="/aboutUs" className="links normal-text">
             About Us
           </NavLink>
-          <NavLink to="/contactUs" className="links">
+          <NavLink to="/contactUs" className="links normal-text">
             Contact Us
           </NavLink>
-          <button className="btn1 drawerbtn">Sign Up</button>
+          <button className="btn1 drawerbtn normal-text">Sign Up</button>
         </div>
 
         {/* { token && user ? (
@@ -41,15 +61,27 @@ const HomeNavbar = () => {
      ) :(<div className="btns">
           <NavLink to="/register"  className="btn1">Sign Up</NavLink>
         </div>)} */}
-        <NavLink to="/home" className="userImg">
+        {/* <NavLink to="/home" className="userImg">
           <img src="" alt="" />
-        </NavLink>
+        </NavLink> */}
 
-        <div className="btns">
+        {token?<div className="btns" onClick={handleLogout}>
+          <NavLink to="/" className="btn">
+            LogOut
+          </NavLink>
+        </div>:
+        <>
+          <div className="btns">
           <NavLink to="/register" className="btn">
             Sign Up
           </NavLink>
-        </div>
+          </div>
+          <div className="btns">
+          <NavLink to="/login" className="btn">
+            Login
+          </NavLink>
+          </div>
+        </>}
 
         <div
           className={`hamburger ${isOpen ? "open" : ""}`}
