@@ -13,7 +13,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className='flex justify-between items-center px-2 py-2 gap-5'>
+        <nav className='flex justify-between items-center px-2 py-2 gap-5 border-b-2'>
             <div className='flex'>
                 <h1 className='font-anta text-3xl'>Mexus</h1>
             </div>
