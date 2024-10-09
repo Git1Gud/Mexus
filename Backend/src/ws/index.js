@@ -11,18 +11,16 @@ export const createWebSocketServer = (port) => {
     const wss = new WebSocketServer({ port });
 
     // Function to authenticate WebSocket users (e.g., using tokens or session)
-    const authenticateUser = (req) => {
-        console.log(req);
-        
-        const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "");
-        return verifyTokenAndGetUserId(token);  // Function to verify and return user ID
-    };
+    
 
     // Handle WebSocket connections
     wss.on("connection", async (ws, req) => {
         console.log("New WebSocket connection");
-
-        const userId = authenticateUser(req);
+        
+      const urlParams = new URLSearchParams(req.url.split("?")[1]);
+      const userId = urlParams.get('userId');
+      console.log(userId);
+        // const userId = authenticateUser(req);
     //    console.log(userId);
        
         if (!userId) {
