@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {  useNavigate } from 'react-router-dom';
 
 const DoctorList = () => {
   const [doctors, setDoctors] = useState([]);
+
+  const navigate = useNavigate();
 
   // Function to fetch all doctors
   const fetchDoctors = async () => {
@@ -22,8 +25,7 @@ const DoctorList = () => {
   // Function to create an appointment
   const createAppointment = async (doctorId) => {
     try {
-      const response = await axios.post('/api/appointments', { doctorId }); // Adjust the URL and payload as needed
-      console.log('Appointment created:', response.data);
+        navigate(`/home/newchat/${doctorId}`);
     } catch (error) {
       console.error('Error creating appointment:', error);
     }

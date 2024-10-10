@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiChevronDown, FiChevronsRight, FiHome } from "react-icons/fi";
+import { IoIosVideocam } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { MdAssignment } from "react-icons/md";
 import { FaBlog, FaCalendarAlt } from "react-icons/fa";
@@ -9,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 
 export const Example = () => {
+ 
   return (
     <div className="flex bg-indigo-50">
       <Sidebar />
@@ -20,6 +22,7 @@ export const Example = () => {
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+  const userId = JSON.parse(localStorage.getItem("user"))?._id;
   // const user = JSON.parse(localStorage.getItem("user"));
   return (
     <motion.nav
@@ -32,7 +35,7 @@ const Sidebar = () => {
       <TitleSection open={open} />
 
       <div className="space-y-1">
-        <Link>
+      <Link to={userId.role === "doctor" ? "/home/main" : "/home/patientDB"}>
           <Option
             Icon={FiHome}
             title="Dashboard"
@@ -42,10 +45,10 @@ const Sidebar = () => {
           />
         </Link>
 
-        <Link
-        >
+        <Link to="/home/videocall">
+        
           <Option
-            Icon={MdAssignment}
+            Icon={IoIosVideocam}
             title='PlaceHolder'
             selected={selected}
             setSelected={setSelected}

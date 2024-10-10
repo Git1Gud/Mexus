@@ -2,11 +2,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSocket } from "../../hooks/useSocket";
 import "./NewChat.css";
+import { useLocation } from "react-router-dom";
 // import { useSocket } from '../hooks/useSocket';
 // import { useSocket } from '../hooks/useSocket.js';
 
 const NewChat = () => {
   const [messages, setMessages] = useState([]);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const receiverId = queryParams.get('userId');
   //   const [newMessage, setNewMessage] = useState('');
   const [message, setMessage] = useState("");
   const userId = JSON.parse(localStorage.getItem("user"))?._id;
@@ -18,7 +22,7 @@ const NewChat = () => {
 
     const msgData = {
       senderId: userId,
-      receiverId: "6706d2c95c2b271c25c58513",
+      receiverId: receiverId,
       content: message,
     };
 

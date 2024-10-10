@@ -42,12 +42,10 @@ const HomeNavbar = () => {
           <NavLink to="/" className="links">
             Home
           </NavLink>
-          <NavLink to="/aboutUs" className="links normal-text">
-            About Us
-          </NavLink>
-          <NavLink to="/contactUs" className="links normal-text">
-            Contact Us
-          </NavLink>
+          {user && <NavLink to={user.role === "doctor" ? "/home/main" : "/home/patientDB"} className="links normal-text">
+            Dashboard
+          </NavLink>}
+          
           <NavLink to="/predict" className="links normal-text">
             Predict
           </NavLink>
