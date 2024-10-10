@@ -29,12 +29,12 @@ const PatientDetails = ({ patientId }) => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="mt-10 w-1/2 border-b-2">
+    <div className="mt-10 w-1/2  border-b border-solid border-[#0066ff61] rounded-lg shadow-md px-10 pb-10">
       <h1 className="heading">Patient Profile Details</h1>
       {patient ? (
         <div>
           <div className="mb-5">
-            <label>Full Name:</label>
+            <label className="!subHeading bold text-black">Full Name:</label>
             <div className="text-headingColor">
               {patient.data.userId.fullName || "Not provided"}
             </div>

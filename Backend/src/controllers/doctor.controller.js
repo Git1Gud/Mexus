@@ -7,7 +7,6 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import Appointment  from "../models/appointment.model.js";
 import User from "../models/user.model.js";
 
-
 // Register a new doctor
 const registerDoctor = asyncHandler(async (req, res) => {
   const {  specialization, experience } = req.body;

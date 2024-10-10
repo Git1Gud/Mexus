@@ -36,9 +36,9 @@ const DoctorList = () => {
   }, []);
 
   return (
-    <div className="mt-10 w-1/2">
-      <div className="heading">Doctors List</div>
-      <table className="w-full border-collapse">
+    <div className="mt-10 w-1/2   border-b border-solid border-[#0066ff61] rounded-lg shadow-md px-10 pb-10">
+      <div className="subHeading">Doctors List</div>
+      <table className="w-full">
         <thead>
           <tr>
             <th className="border-b border-solid border-[#0066ff61] py-3 text-left">Name</th>

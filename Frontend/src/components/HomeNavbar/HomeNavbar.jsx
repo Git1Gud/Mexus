@@ -46,10 +46,10 @@ const HomeNavbar = () => {
             Dashboard
           </NavLink>}
           
-          <NavLink to="/predict" className="links normal-text">
+          <NavLink to="/home/predict" className="links normal-text">
             Predict
           </NavLink>
-          <NavLink to="/report" className="links normal-text">
+          <NavLink to="/home/report" className="links normal-text">
             Report
           </NavLink>
 
