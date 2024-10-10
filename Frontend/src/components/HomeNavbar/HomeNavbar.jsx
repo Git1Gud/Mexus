@@ -13,25 +13,24 @@ const HomeNavbar = () => {
     document.body.style.overflow = isOpen ? "auto" : "hidden";
   };
 
-  const user=JSON.parse(localStorage.getItem('user'))
-  const token = localStorage.getItem('token');
-  const toast=useToast()
-  const navigate=useNavigate()
+  const user = JSON.parse(localStorage.getItem("user"));
+  const token = localStorage.getItem("token");
+  const toast = useToast();
+  const navigate = useNavigate();
 
   // console.log(token)
-  
 
   const handleLogout = async () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    localStorage.removeItem('student-courses');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("student-courses");
     toast({
       title: "Logged Out ",
       status: "success",
       duration: 9000,
       isClosable: true,
     });
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
@@ -49,6 +48,13 @@ const HomeNavbar = () => {
           <NavLink to="/contactUs" className="links normal-text">
             Contact Us
           </NavLink>
+          <NavLink to="/predict" className="links normal-text">
+            Predict
+          </NavLink>
+          <NavLink to="/report" className="links normal-text">
+            Report
+          </NavLink>
+
           <button className="btn1 drawerbtn normal-text">Sign Up</button>
         </div>
 
@@ -64,23 +70,26 @@ const HomeNavbar = () => {
           <img src="" alt="" />
         </NavLink> */}
 
-        {token?<div className="btns" onClick={handleLogout}>
-          <NavLink to="/" className="btn">
-            LogOut
-          </NavLink>
-        </div>:
-        <>
-          <div className="btns">
-          <NavLink to="/register" className="btn">
-            Sign Up
-          </NavLink>
+        {token ? (
+          <div className="btns" onClick={handleLogout}>
+            <NavLink to="/" className="btn">
+              LogOut
+            </NavLink>
           </div>
-          {/* <div className="btns">
+        ) : (
+          <>
+            <div className="btns">
+              <NavLink to="/register" className="btn">
+                Sign Up
+              </NavLink>
+            </div>
+            {/* <div className="btns">
           <NavLink to="/login" className="btn">
             Login
           </NavLink>
           </div> */}
-        </>}
+          </>
+        )}
 
         <div
           className={`hamburger ${isOpen ? "open" : ""}`}

@@ -50,8 +50,8 @@ const toast=useToast();
   };
   
   const handleUpload = async () => {
-    if (!file || !no) {
-      alert("Please select a file to upload and a no.");
+    if (!file) {
+      alert("Please select a file to upload");
       return;
     }
 

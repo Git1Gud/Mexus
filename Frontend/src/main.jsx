@@ -11,6 +11,7 @@ import Zegovideo from "./components/Zegovideo.jsx";
 import VideozegoRoom from "./components/VideozegoRoom.jsx";
 import Report from "./pages/Patient/Report.jsx";
 import Chat from "./components/Chat.jsx";
+import Predict from "./pages/Predict.jsx";
 
 import {Main} from './pages/index.js'
 import ChatApp from "./pages/Chat/Chat.jsx";
@@ -49,7 +50,10 @@ const router = createBrowserRouter([
       {
         path: 'chat',
         element: <Chat />,
-      },
+      },{
+        path: 'Predict',
+        element: <Predict/>
+      }
       
     ],
     element: <Dashboard/>
