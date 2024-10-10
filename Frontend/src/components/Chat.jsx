@@ -1,17 +1,17 @@
 // src/components/Chat.js
 import React, { useState, useEffect, useRef } from 'react';
 import { useSocket } from '../hooks/useSocket';
+// import { useSocket } from '../hooks/useSocket';
+// import { useSocket } from '../hooks/useSocket.js';
 
 const Chat = () => {
+
   const [messages, setMessages] = useState([]);
 //   const [newMessage, setNewMessage] = useState('');
   const [message, setMessage] = useState(""); 
   const userId=JSON.parse(localStorage.getItem('user'))?._id
-  const socket = useSocket(userId)  // Using ref to keep track of the WebSocket connection
+  const socket = useSocket(userId) // Using ref to keep track of the WebSocket connection
     // console.log(user.id);
-
-
-    
   
 
    
@@ -36,6 +36,7 @@ const Chat = () => {
         socket.onmessage = (event) => {
           const receivedMessage = JSON.parse(event.data);
           console.log("Received message:", receivedMessage);
+          setMessages((prevMessages) => [...prevMessages, receivedMessage]);
           // Handle incoming message (e.g., display in chat UI)
         };
     

@@ -38,7 +38,11 @@ const Login = () => {
           JSON.stringify(response.data.data.accessToken)
         );
         localStorage.setItem("user", JSON.stringify(response.data.data.user));
-        navigate("/home");
+        if(response.data.data.user.role === "doctor") {
+          navigate("/home/main");
+        } else {
+        navigate("/home/patientDB");
+        }
         setLoading(false);
       }
     } catch (error) {
@@ -50,6 +54,7 @@ const Login = () => {
         duration: 9000,
         isClosable: true,
       });
+
       setLoading(false);
     }finally {
       setLoading(false)
