@@ -52,7 +52,7 @@ export const createWebSocketServer = (port) => {
 
             // Save the message to MongoDB
             const newMessage = new Message({
-                sender: sender._id,
+                sender: userId,
                 receiver: receiver._id,
                 content,
             });

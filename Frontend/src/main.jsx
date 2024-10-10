@@ -12,9 +12,12 @@ import VideozegoRoom from "./components/VideozegoRoom.jsx";
 import Report from "./pages/Patient/Report.jsx";
 import Chat from "./components/Chat.jsx";
 import Predict from "./pages/Predict.jsx";
+// /
 
 import {Main} from './pages/index.js'
-import ChatApp from "./pages/Chat/Chat.jsx";
+import NewChat from "./components/NewChat/NewChat.jsx";
+import PatientDB from "./components/Patient/PatientDB.jsx";
+// import ChatApp from "./pages/Chat/Chat.jsx";
 
 
 const router = createBrowserRouter([
@@ -40,7 +43,8 @@ const router = createBrowserRouter([
       },{
         path: 'main',
         element: <Main/>
-      },{
+      },
+      {
         path: 'appointment',
         element: <Appointment/>
       },{
@@ -53,7 +57,16 @@ const router = createBrowserRouter([
       },{
         path: 'Predict',
         element: <Predict/>
-      }
+      
+      },
+      {
+        path: 'newchat',
+        element: <NewChat />,
+      },
+      {
+        path: 'patientDB',
+        element: <PatientDB />,
+      },
       
     ],
     element: <Dashboard/>

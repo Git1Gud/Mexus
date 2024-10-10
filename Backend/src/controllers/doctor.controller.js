@@ -43,30 +43,16 @@ const getDoctorDetails = asyncHandler(async (req, res) => {
   return res.status(200).json(new ApiResponse(200, doctor, "Doctor details retrieved successfully"));
 });
 
-// Get all doctor details
-const getAllDoctors = asyncHandler(async (req, res) => {
+
+// Controller function to get all doctors
+const getAllDoctors = async (req, res) => {
   try {
-    const { query } = null
-    let doctors;
-
-    if (query) {
-      doctors = await Doctor.find({
-        $or: [
-          { title: { $regex: query, $options: "i" } }, // Case-insensitive search
-          { type: { $regex: query, $options: "i" } }, // Uncomment for type filter
-          { category: { $regex: query, $options: "i" } }, // Uncomment for category filter
-        ],
-      });
-    } else {
-      doctors = await Doctor.find({ completed: "false" });
-    }
-
-    res.status(200).json(new ApiResponse(200, doctors, "Doctors retrieved successfully"));
+    const doctors = await Doctor.find().populate('userId', '-password -refreshToken');; // Fetch all doctors from the database
+    res.status(200).json(doctors); // Send the doctors as a JSON response
   } catch (error) {
-    console.error(error); // Log the error for debugging
-    res.status(404).json({ success: false, message: error.message });
+    res.status(500).json({ message: 'Error fetching doctors', error }); // Handle errors
   }
-});
+};
 
 // Update doctor details
 const updateDoctorDetails = asyncHandler(async (req, res) => {

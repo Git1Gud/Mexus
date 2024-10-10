@@ -107,7 +107,7 @@ const getPatientDetails = asyncHandler(async (req, res) => {
   const { userId } = req.params;
   // Assuming userId is passed in the request object
 
-  const patient = await Patient.findOne(userId);
+  const patient = await Patient.findOne(userId).populate("userId");
 
   if (!patient) {
     throw new ApiError(404, "Patient record not found.");
