@@ -1,0 +1,75 @@
+
+
+.navbar .Navlogo{
+  width: auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  font-size: 30px;
+  font-family: anta; 
+  color: var(--Blackish);
+  background: transparent;
+
+}
+
+
+
+.heading{
+  font-size: 40px;
+  color: var(--Blackish);
+  margin-bottom: 1rem;
+
+  font-family: Poppins;
+  font-style: normal;
+  text-align: center;
+  text-transform: none;
+}
+
+.spanColor{
+  font-size: 48px;
+  color: var(--Blackish);
+  margin-bottom: 1rem;
+
+  font-style: normal;
+  text-align: center;
+  text-transform: none;
+}
+
+.subHeading{
+  font-size: 28px;
+  font-family: poppins; 
+  color: var(--Blackish);
+  font-style: normal;
+  text-align: center;
+  text-transform: none;
+}
+
+.normalText{
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--Blackish);
+  margin-bottom: 1rem;
+  text-transform: none;
+}
+.container{
+  width: 80%;
+  align-self: center;
+}
+
+
+.zego-img{
+  width: 400px;
+  height: auto;
+  border-radius: 100%;
+  object-fit: cover;
+  margin: 30px auto;
+}
+
+
+
+
+
+
+
